@@ -3,6 +3,19 @@ const router = express.Router();
 const aiExplainer = require('../services/aiExplainer');
 
 /**
+ * GET /api/ai/rejections
+ * Get all available EPFO rejection codes
+ */
+router.get('/rejections', (req, res) => {
+  const codes = aiExplainer.getAllCodes();
+  res.json({
+    success: true,
+    total: codes.length,
+    codes
+  });
+});
+
+/**
  * POST /api/ai/explain
  * Explain a rejection code
  * Body: { rejectionCode: "RJ-001" }

@@ -18,6 +18,61 @@
   }
 }
 
+/* ── Quick Code Bar ──────────────────────── */
+.chat-quick-codes {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.quick-codes-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.quick-codes-scroll {
+  display: flex;
+  gap: var(--space-xs);
+  overflow-x: auto;
+  padding: 2px 0;
+}
+
+.quick-codes-scroll::-webkit-scrollbar {
+  height: 0;
+}
+
+.quick-code-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-full);
+  padding: 3px 10px;
+  color: var(--text-primary);
+  font-size: var(--font-size-xs);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.quick-code-pill strong {
+  color: var(--accent-cyan);
+}
+
+.quick-code-pill:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-indigo);
+  transform: translateY(-1px);
+}
+
 /* ── Chat Window ──────────────────────────── */
 .chat-window {
   flex: 1;
@@ -86,7 +141,7 @@
 .chat-bubble-container {
   display: flex;
   gap: var(--space-sm);
-  max-width: 85%;
+  max-width: 88%;
 }
 
 .chat-bubble-container.user {
@@ -123,6 +178,12 @@
   background: var(--bg-tertiary);
 }
 
+.chat-bubble-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
 .chat-bubble {
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--radius-lg);
@@ -144,15 +205,66 @@
   border-bottom-right-radius: var(--space-xs);
 }
 
-.chat-time {
-  font-size: var(--font-size-xs);
-  color: var(--text-muted);
-  margin-top: 2px;
+.chat-footer-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
   padding: 0 var(--space-xs);
 }
 
-.chat-bubble-container.user .chat-time {
-  text-align: right;
+.chat-bubble-container.user .chat-footer-row {
+  justify-content: flex-end;
+}
+
+.chat-time {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.chat-audio-btn {
+  background: transparent;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-full);
+  padding: 1px 8px;
+  font-size: 10px;
+  color: var(--accent-cyan);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.chat-audio-btn:hover {
+  background: var(--bg-glass);
+  border-color: var(--accent-cyan);
+}
+
+.chat-audio-btn.playing {
+  background: var(--status-rejected-bg);
+  border-color: var(--status-rejected);
+  color: var(--status-rejected);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.chat-bubble-action {
+  margin-top: var(--space-sm);
+  padding-top: var(--space-xs);
+  border-top: 1px solid var(--border-glass);
+}
+
+.chat-action-btn {
+  background: var(--gradient-primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-block;
+}
+
+.chat-action-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
 }
 
 /* ── Steps in Chat ────────────────────────── */
@@ -223,8 +335,34 @@
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-glass);
   display: flex;
-  gap: var(--space-sm);
-  align-items: flex-end;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.voice-listening-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: var(--status-rejected-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--status-rejected);
+}
+
+.voice-listening-text {
+  font-size: var(--font-size-xs);
+  color: var(--status-rejected);
+  font-weight: 600;
+}
+
+.voice-done-btn {
+  background: var(--status-rejected);
+  color: white;
+  border-radius: var(--radius-sm);
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .chat-input-wrapper {

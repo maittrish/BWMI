@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useChat } from '../hooks/useChat';
 import ChatWindow from '../components/Chat/ChatWindow';
@@ -7,17 +7,31 @@ export default function ChatPage() {
   const [searchParams] = useSearchParams();
   const code = searchParams.get('code');
   const claimId = searchParams.get('claimId');
-  const { messages, isTyping, sendMessage, addMessage } = useChat();
+  const query = searchParams.get('query') || searchParams.get('prompt') || searchParams.get('q');
+  const autoVoice = searchParams.get('voice') === '1' || searchParams.get('voice') === 'true';
+  const { messages, isTyping, sendMessage } = useChat();
+  const initializedRef = useRef(false);
 
-  // Auto-send context if navigated from a rejected claim
   useEffect(() => {
-    if (code && messages.length === 0) {
+    if (initializedRef.current) return;
+    initializedRef.current = true;
+
+    if (code) {
       const contextMsg = claimId
         ? `Help me with my rejected claim ${claimId}. The rejection code is ${code}`
         : `What does rejection code ${code} mean?`;
       sendMessage(contextMsg);
+    } else if (query) {
+      sendMessage(query);
     }
-  }, []); // Only on mount
+  }, [code, claimId, query, sendMessage]);
 
-  return <ChatWindow messages={messages} isTyping={isTyping} onSend={sendMessage} />;
+  return (
+    <ChatWindow
+      messages={messages}
+      isTyping={isTyping}
+      onSend={sendMessage}
+      autoVoice={autoVoice}
+    />
+  );
 }

@@ -43,6 +43,9 @@ export const api = {
     body: JSON.stringify({ uan, claimId, corrections })
   }),
 
+  // Rejections catalog
+  getRejections: () => request('/ai/rejections'),
+
   // Demo
   getDemoUans: () => request('/demo-uans'),
 

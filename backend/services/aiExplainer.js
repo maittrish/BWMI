@@ -3,7 +3,7 @@ const fixSteps = require('../data/fix-steps.json');
 
 /**
  * AI Explainer Service
- * Rule-based engine that maps rejection codes to plain-language explanations
+ * Maps rejection codes and user queries to plain-language explanations
  * and step-by-step fix instructions.
  */
 class AIExplainer {
@@ -15,16 +15,24 @@ class AIExplainer {
   }
 
   /**
+   * Get all rejection codes
+   */
+  getAllCodes() {
+    return rejectionCodes;
+  }
+
+  /**
    * Get a full explanation for a rejection code
    */
   explain(rejectionCode) {
-    const codeInfo = this.rejectionMap[rejectionCode];
-    const steps = fixSteps[rejectionCode];
+    const normalizedCode = rejectionCode ? rejectionCode.trim().toUpperCase() : '';
+    const codeInfo = this.rejectionMap[normalizedCode];
+    const steps = fixSteps[normalizedCode];
 
     if (!codeInfo) {
       return {
         success: false,
-        message: `Sorry, I don't recognize rejection code "${rejectionCode}". Please check the code and try again.`
+        message: `Sorry, I don't recognize rejection code "${rejectionCode}". Please select or ask about codes like RJ-001 (Name Mismatch), RJ-004 (Bank Not Verified), RJ-007 (Employer Attestation), or RJ-014 (Advance Limit Exceeded).`
       };
     }
 
@@ -129,20 +137,62 @@ class AIExplainer {
    * Chat-style response for conversational queries
    */
   chat(message) {
-    // Extract rejection code from message if present
-    const codeMatch = message.match(/RJ-\d{3}/i);
-    if (codeMatch) {
-      return this.explain(codeMatch[0].toUpperCase());
+    if (!message) {
+      return {
+        success: true,
+        type: 'greeting',
+        message: 'Hello! I\'m PF Sathi, your AI claims assistant. How can I help you today?'
+      };
     }
 
-    // Keyword-based responses
+    // Extract rejection code from message if present (e.g., RJ-001, RJ001, rj-004)
+    const codeMatch = message.match(/RJ-?\s?(\d{3})/i);
+    if (codeMatch) {
+      const code = `RJ-${codeMatch[1]}`;
+      return this.explain(code);
+    }
+
     const lowerMsg = message.toLowerCase();
 
-    if (lowerMsg.includes('uan') && (lowerMsg.includes('forgot') || lowerMsg.includes('find') || lowerMsg.includes('lost'))) {
+    // Natural query for Name Mismatch
+    if (lowerMsg.includes('name') && (lowerMsg.includes('mismatch') || lowerMsg.includes('wrong') || lowerMsg.includes('spelling') || lowerMsg.includes('diff'))) {
+      return this.explain('RJ-001');
+    }
+
+    // Natural query for Date of birth
+    if (lowerMsg.includes('dob') || lowerMsg.includes('date of birth') || lowerMsg.includes('birth date')) {
+      return this.explain('RJ-002');
+    }
+
+    // Natural query for Bank Account / IFSC
+    if (lowerMsg.includes('bank') || lowerMsg.includes('ifsc') || lowerMsg.includes('cheque') || lowerMsg.includes('passbook') || lowerMsg.includes('account number')) {
+      return this.explain('RJ-004');
+    }
+
+    // Natural query for Employer Attestation / HR not signing
+    if (lowerMsg.includes('employer') || lowerMsg.includes('attest') || lowerMsg.includes('company') || lowerMsg.includes('hr') || lowerMsg.includes('boss')) {
+      return this.explain('RJ-007');
+    }
+
+    // Natural query for Aadhaar linking
+    if (lowerMsg.includes('aadhaar') || lowerMsg.includes('aadhar') || lowerMsg.includes('uidai') || lowerMsg.includes('seed')) {
+      return this.explain('RJ-005');
+    }
+
+    // Common rejection codes overview
+    if (lowerMsg.includes('common') || lowerMsg.includes('rejection reasons') || lowerMsg.includes('why rejected') || lowerMsg.includes('reasons') || lowerMsg.includes('codes')) {
       return {
         success: true,
         type: 'info',
-        message: 'To find your UAN:\n1. Check your salary slip — UAN is usually printed there\n2. Ask your employer\'s HR department\n3. Visit https://unifiedportal-mem.epfindia.gov.in → "Know Your UAN" (needs Aadhaar/PAN/Member ID)\n4. Call EPFO helpline: 1800-118-005'
+        message: 'Top 5 reasons why EPFO claims get rejected:\n\n1️⃣ RJ-001: Name Mismatch (Aadhaar/PAN vs PF records)\n2️⃣ RJ-004: Bank Account Unverified / Name mismatch on passbook\n3️⃣ RJ-007: Employer Attestation Pending (HR did not approve)\n4️⃣ RJ-005: Aadhaar not seeded or linked with UAN\n5️⃣ RJ-014: Advance amount requested exceeds eligible limit\n\nAsk me about any of these (e.g. "Explain RJ-001") for full step-by-step fix instructions!'
+      };
+    }
+
+    if (lowerMsg.includes('uan') && (lowerMsg.includes('forgot') || lowerMsg.includes('find') || lowerMsg.includes('lost') || lowerMsg.includes('what is'))) {
+      return {
+        success: true,
+        type: 'info',
+        message: 'Universal Account Number (UAN) is your 12-digit permanent EPFO identifier:\n\n1. Check your monthly salary slip (printed near PF No.)\n2. Ask your employer\'s HR department\n3. Visit https://unifiedportal-mem.epfindia.gov.in → Click "Know Your UAN"\n4. Call EPFO Toll-free helpline: 1800-118-005'
       };
     }
 
@@ -150,30 +200,30 @@ class AIExplainer {
       return {
         success: true,
         type: 'info',
-        message: 'To check your claim status:\n1. Login to https://passbook.epfindia.gov.in\n2. Or use the UMANG app\n3. Or SMS: EPFOHO UAN ENG to 7738299899\n4. I can also show you the status — just enter your UAN on the home page!'
+        message: 'To track your claim status:\n\n1. Use PF Sathi Home page: Enter your UAN to see real-time claim cards and visual timelines!\n2. EPFO Member Portal: https://passbook.epfindia.gov.in\n3. UMANG Mobile App: Search "EPFO" → "Track Claim"\n4. SMS: Send `EPFOHO UAN ENG` to 7738299899'
       };
     }
 
-    if (lowerMsg.includes('how long') || lowerMsg.includes('time') || lowerMsg.includes('days')) {
+    if (lowerMsg.includes('how long') || lowerMsg.includes('time') || lowerMsg.includes('days') || lowerMsg.includes('duration')) {
       return {
         success: true,
         type: 'info',
-        message: 'Typical PF claim processing times:\n• Online claims: 10-20 working days\n• KYC corrections: 7-15 working days\n• Grievance resolution: 30 days\n• Employer attestation: depends on employer (file grievance after 7 days)'
+        message: 'Typical EPFO settlement timelines:\n\n• Online Claim (Form 19 / 31 / 10C): 10 to 20 working days\n• Auto-settled Advances (Illness/Education): 3 to 5 days\n• KYC Name / DOB Corrections: 7 to 15 working days\n• EPFiGMS Grievance resolution: Up to 30 days'
       };
     }
 
-    if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('help')) {
+    if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('help') || lowerMsg.includes('hey') || lowerMsg.includes('namaste')) {
       return {
         success: true,
         type: 'greeting',
-        message: 'Hello! I\'m PF Sathi, your PF claims assistant. 🤝\n\nI can help you with:\n• Understanding why your claim was rejected\n• Step-by-step guidance to fix issues\n• Tracking your claim status\n• Answering PF-related questions\n\nTry asking me about a specific rejection code (e.g., "What is RJ-001?") or describe your problem!'
+        message: 'Namaste & Hello! I\'m PF Sathi, your AI-powered PF Claims Assistant. 🤝\n\nI can help you with:\n• 🔍 Explaining why your claim was rejected in plain English & Hindi\n• 🛠️ 5-step fix guides to get your money released\n• 📊 Tracking claims with visual status timelines\n• 🎤 Voice assistant for hands-free queries\n\nTry clicking any suggestion below or ask me about a rejection code like RJ-001!'
       };
     }
 
     return {
       success: true,
       type: 'fallback',
-      message: 'I\'m not sure I understood that. Could you try:\n• Asking about a specific rejection code (e.g., "Explain RJ-001")\n• Describing your problem (e.g., "My name doesn\'t match")\n• Asking about claim status or UAN\n\nOr enter your UAN on the home page to see your claims!'
+      message: `I understand you're asking about "${message}".\n\nHere are some things I can help you with immediately:\n• Type any code like "RJ-001", "RJ-004", or "RJ-007"\n• Ask "What are the common rejection codes?"\n• Ask "How do I fix name mismatch?"\n• Ask "How to track my claim status?"\n\nOr click the Claims tab in the bottom bar to review your claims!`
     };
   }
 }

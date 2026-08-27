@@ -35,9 +35,29 @@
 .hero-desc {
   font-size: var(--font-size-sm);
   color: var(--text-muted);
-  max-width: 340px;
+  max-width: 380px;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+/* ══ Section Headers ══════════════════════ */
+.section-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.section-heading {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.section-badge {
+  font-size: var(--font-size-xs);
+  color: var(--accent-cyan);
+  font-weight: 500;
 }
 
 /* ══ UAN Form ═════════════════════════════ */
@@ -80,13 +100,113 @@
 
 .uan-input:focus {
   border-color: var(--accent-indigo);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25), 0 0 20px rgba(99, 102, 241, 0.3);
 }
 
 .uan-error {
   font-size: var(--font-size-xs);
   color: var(--status-rejected);
   text-align: center;
+  font-weight: 500;
+}
+
+/* ══ Interactive Feature Cards ════════════ */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.feature-interactive {
+  cursor: pointer;
+  text-align: left;
+  padding: var(--space-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(15px);
+  transition: all var(--transition-base);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-interactive:hover {
+  border-color: var(--accent-indigo);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
+  background: var(--bg-card-hover);
+}
+
+.feature-interactive:active {
+  transform: scale(0.98);
+}
+
+.feature-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+}
+
+.feature-icon {
+  font-size: 1.6rem;
+  display: block;
+}
+
+.feature-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(99, 102, 241, 0.2);
+  color: var(--accent-indigo);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.feature-badge-cyan {
+  background: rgba(6, 182, 212, 0.2);
+  color: var(--accent-cyan);
+}
+
+.feature-badge-amber {
+  background: rgba(245, 158, 11, 0.2);
+  color: var(--status-processing);
+}
+
+.feature-badge-pink {
+  background: rgba(236, 72, 153, 0.2);
+  color: var(--accent-pink);
+}
+
+.feature-interactive h3 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--text-primary);
+}
+
+.feature-interactive p {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: 1.4;
+  margin-bottom: var(--space-sm);
+}
+
+.feature-action-hint {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--accent-cyan);
+  align-self: flex-start;
+  transition: transform var(--transition-fast);
+}
+
+.feature-interactive:hover .feature-action-hint {
+  transform: translateX(4px);
+  color: var(--text-primary);
 }
 
 /* ══ Demo Section ═════════════════════════ */
@@ -141,42 +261,119 @@
   border-radius: var(--radius-sm);
 }
 
-/* ══ Features ═════════════════════════════ */
-.features-grid {
+/* ══ Rejections Explorer ═════════════════ */
+.category-filter-bar {
+  display: flex;
+  gap: var(--space-xs);
+  overflow-x: auto;
+  padding-bottom: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.category-filter-bar::-webkit-scrollbar {
+  height: 3px;
+}
+
+.cat-pill {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  color: var(--text-secondary);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cat-pill:hover {
+  background: var(--bg-glass-strong);
+  color: var(--text-primary);
+}
+
+.cat-pill.active {
+  background: var(--gradient-primary);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
+}
+
+.rejections-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-sm);
 }
 
-.feature-item {
-  text-align: center;
+@media (max-width: 480px) {
+  .rejections-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rejection-pill-card {
   padding: var(--space-md);
-  background: var(--bg-card);
-  border: 1px solid var(--border-glass);
   border-radius: var(--radius-md);
-  backdrop-filter: blur(10px);
+  cursor: pointer;
   transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.feature-item:hover {
-  border-color: var(--border-accent);
+.rejection-pill-card:hover {
+  border-color: var(--accent-indigo);
   transform: translateY(-2px);
+  background: var(--bg-card-hover);
 }
 
-.feature-icon {
-  font-size: 1.5rem;
-  display: block;
+.rejection-pill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: var(--space-xs);
 }
 
-.feature-item h3 {
+.rejection-code-chip {
   font-size: var(--font-size-xs);
-  font-weight: 700;
-  margin-bottom: 2px;
+  font-weight: 800;
+  color: var(--status-rejected);
+  background: var(--status-rejected-bg);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
 }
 
-.feature-item p {
+.rejection-cat-tag {
   font-size: 10px;
   color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.rejection-pill-title {
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
   line-height: 1.4;
+}
+
+.rejection-pill-link {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-cyan);
+}
+
+/* ══ Modal Actions ════════════════════════ */
+.home-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.home-modal-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
 }
