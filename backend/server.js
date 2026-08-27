@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const claimsRouter = require('./routes/claims');
@@ -7,6 +8,7 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const FRONTEND_DIST = path.join(__dirname, '../frontend/dist');
 
 // Middleware
 app.use(cors());
@@ -18,14 +20,14 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes
+// API Routes
 app.use('/api/claims', claimsRouter);
 app.use('/api/ai', aiRouter);
 app.use('/api/resubmit', resubmitRouter);
 
 // Health check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', service: 'PF Sathi API', version: '1.0.0' });
+  res.json({ status: 'ok', service: 'PF Sathi Unified Server', version: '1.0.0' });
 });
 
 // Demo UANs endpoint
@@ -41,15 +43,25 @@ app.get('/api/demo-uans', (req, res) => {
   });
 });
 
+// Serve frontend static files
+app.use(express.static(FRONTEND_DIST));
+
+// SPA fallback: any non-API route serves the frontend index.html
+app.get('*', (req, res, next) => {
+  if (req.url.startsWith('/api/')) {
+    return next();
+  }
+  res.sendFile(path.join(FRONTEND_DIST, 'index.html'));
+});
+
 // Error handler
 app.use(errorHandler);
 
 app.listen(PORT, () => {
   console.log(`
-  ╔══════════════════════════════════════╗
-  ║     🤝 PF Sathi API Server         ║
-  ║     Running on port ${PORT}            ║
-  ║     http://localhost:${PORT}           ║
-  ╚══════════════════════════════════════╝
+  ╔════════════════════════════════════════════════════════╗
+  ║     🤝 PF Sathi Unified Server (App + API)            ║
+  ║     App & API running on: http://localhost:${PORT}        ║
+  ╚════════════════════════════════════════════════════════╝
   `);
 });

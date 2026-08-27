@@ -1,0 +1,19 @@
+{
+  "name": "pf-sathi",
+  "version": "1.0.0",
+  "description": "PF Sathi — AI Assistant for EPFO PF Claim Rejections",
+  "scripts": {
+    "build": "npm --prefix frontend run build",
+    "start": "node backend/server.js",
+    "setup": "npm --prefix backend install && npm --prefix frontend install && npm run build"
+  },
+  "keywords": [
+    "epfo",
+    "pf",
+    "ai",
+    "claims",
+    "assistant"
+  ],
+  "author": "Team BWMI",
+  "license": "MIT"
+}

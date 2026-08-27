@@ -25,32 +25,36 @@ PF Sathi is an AI-powered assistant that:
 | Voice | Web Speech API |
 | AI | Rule-based explainer (extensible to Gemini API) |
 
-## 🚀 Quick Start
+## 🚀 Quick Start (Single Unified Server)
 
 ### Prerequisites
 - Node.js 18+
 - npm 9+
 
-### Setup
+### Setup & Run in 1 Command
 
 ```bash
 # Clone
 git clone https://github.com/maittrish/BWMI.git
 cd BWMI
 
-# Frontend
-cd frontend
-npm install
-npm run dev
-
-# Backend (in a new terminal)
-cd backend
-npm install
+# Build frontend and start unified server
+npm run build
 npm start
 ```
 
-Frontend runs on `http://localhost:5173`  
-Backend runs on `http://localhost:3001`
+Open **http://localhost:3001** in your browser. Both the frontend UI and backend API run together on port `3001`.
+
+### Development Mode (Optional)
+
+If you wish to run them separately with hot-reloading:
+```bash
+# Backend (Port 3001)
+npm --prefix backend run dev
+
+# Frontend (Port 5173 with auto-proxy to 3001)
+npm --prefix frontend run dev
+```
 
 ## 📱 Features
 
