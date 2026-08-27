@@ -1,0 +1,53 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  text-transform: capitalize;
+}
+
+.badge-sm {
+  font-size: var(--font-size-xs);
+  padding: 2px 10px;
+}
+
+.badge-md {
+  font-size: var(--font-size-sm);
+  padding: 4px 14px;
+}
+
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Status colors */
+.badge-approved {
+  background: var(--status-approved-bg);
+  color: var(--status-approved);
+}
+.badge-approved .badge-dot { background: var(--status-approved); }
+
+.badge-processing {
+  background: var(--status-processing-bg);
+  color: var(--status-processing);
+}
+.badge-processing .badge-dot {
+  background: var(--status-processing);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.badge-rejected {
+  background: var(--status-rejected-bg);
+  color: var(--status-rejected);
+}
+.badge-rejected .badge-dot { background: var(--status-rejected); }
+
+.badge-pending {
+  background: var(--status-pending-bg);
+  color: var(--status-pending);
+}
+.badge-pending .badge-dot { background: var(--status-pending); }

@@ -1,0 +1,170 @@
+[
+  {
+    "claimId": "CLM-2024-001",
+    "uan": "100123456789",
+    "memberName": "Rajesh Kumar",
+    "formType": "Form 19",
+    "formDescription": "Final PF Settlement",
+    "amount": 285000,
+    "submittedDate": "2024-07-15",
+    "lastUpdated": "2024-07-22",
+    "status": "rejected",
+    "rejectionCode": "RJ-001",
+    "employerName": "TechServ Solutions Pvt Ltd",
+    "establishmentCode": "DLCPM0012345",
+    "timeline": [
+      { "step": "Submitted", "date": "2024-07-15", "status": "done" },
+      { "step": "Employer Attestation", "date": "2024-07-17", "status": "done" },
+      { "step": "EPFO Processing", "date": "2024-07-20", "status": "done" },
+      { "step": "KYC Verification", "date": "2024-07-22", "status": "failed" },
+      { "step": "Settlement", "date": null, "status": "pending" }
+    ]
+  },
+  {
+    "claimId": "CLM-2024-002",
+    "uan": "100123456789",
+    "memberName": "Rajesh Kumar",
+    "formType": "Form 31",
+    "formDescription": "PF Advance — Housing",
+    "amount": 150000,
+    "submittedDate": "2024-06-01",
+    "lastUpdated": "2024-06-18",
+    "status": "approved",
+    "rejectionCode": null,
+    "employerName": "TechServ Solutions Pvt Ltd",
+    "establishmentCode": "DLCPM0012345",
+    "timeline": [
+      { "step": "Submitted", "date": "2024-06-01", "status": "done" },
+      { "step": "Employer Attestation", "date": "2024-06-03", "status": "done" },
+      { "step": "EPFO Processing", "date": "2024-06-10", "status": "done" },
+      { "step": "KYC Verification", "date": "2024-06-14", "status": "done" },
+      { "step": "Settlement", "date": "2024-06-18", "status": "done" }
+    ]
+  },
+  {
+    "claimId": "CLM-2024-003",
+    "uan": "100123456789",
+    "memberName": "Rajesh Kumar",
+    "formType": "Form 10C",
+    "formDescription": "Pension Withdrawal",
+    "amount": 95000,
+    "submittedDate": "2024-08-01",
+    "lastUpdated": "2024-08-05",
+    "status": "processing",
+    "rejectionCode": null,
+    "employerName": "TechServ Solutions Pvt Ltd",
+    "establishmentCode": "DLCPM0012345",
+    "timeline": [
+      { "step": "Submitted", "date": "2024-08-01", "status": "done" },
+      { "step": "Employer Attestation", "date": "2024-08-03", "status": "done" },
+      { "step": "EPFO Processing", "date": "2024-08-05", "status": "active" },
+      { "step": "KYC Verification", "date": null, "status": "pending" },
+      { "step": "Settlement", "date": null, "status": "pending" }
+    ]
+  },
+  {
+    "claimId": "CLM-2024-004",
+    "uan": "100987654321",
+    "memberName": "Priya Sharma",
+    "formType": "Form 19",
+    "formDescription": "Final PF Settlement",
+    "amount": 420000,
+    "submittedDate": "2024-07-10",
+    "lastUpdated": "2024-07-25",
+    "status": "rejected",
+    "rejectionCode": "RJ-007",
+    "employerName": "Sunrise Manufacturing Ltd",
+    "establishmentCode": "MHPUN0098765",
+    "timeline": [
+      { "step": "Submitted", "date": "2024-07-10", "status": "done" },
+      { "step": "Employer Attestation", "date": null, "status": "failed" },
+      { "step": "EPFO Processing", "date": null, "status": "pending" },
+      { "step": "KYC Verification", "date": null, "status": "pending" },
+      { "step": "Settlement", "date": null, "status": "pending" }
+    ]
+  },
+  {
+    "claimId": "CLM-2024-005",
+    "uan": "100987654321",
+    "memberName": "Priya Sharma",
+    "formType": "Form 31",
+    "formDescription": "PF Advance — Medical",
+    "amount": 50000,
+    "submittedDate": "2024-05-20",
+    "lastUpdated": "2024-06-01",
+    "status": "approved",
+    "rejectionCode": null,
+    "employerName": "Sunrise Manufacturing Ltd",
+    "establishmentCode": "MHPUN0098765",
+    "timeline": [
+      { "step": "Submitted", "date": "2024-05-20", "status": "done" },
+      { "step": "Employer Attestation", "date": "2024-05-22", "status": "done" },
+      { "step": "EPFO Processing", "date": "2024-05-26", "status": "done" },
+      { "step": "KYC Verification", "date": "2024-05-29", "status": "done" },
+      { "step": "Settlement", "date": "2024-06-01", "status": "done" }
+    ]
+  },
+  {
+    "claimId": "CLM-2024-006",
+    "uan": "100987654321",
+    "memberName": "Priya Sharma",
+    "formType": "Form 19",
+    "formDescription": "Final PF Settlement",
+    "amount": 420000,
+    "submittedDate": "2024-08-02",
+    "lastUpdated": "2024-08-10",
+    "status": "rejected",
+    "rejectionCode": "RJ-004",
+    "employerName": "Sunrise Manufacturing Ltd",
+    "establishmentCode": "MHPUN0098765",
+    "timeline": [
+      { "step": "Submitted", "date": "2024-08-02", "status": "done" },
+      { "step": "Employer Attestation", "date": "2024-08-04", "status": "done" },
+      { "step": "EPFO Processing", "date": "2024-08-07", "status": "done" },
+      { "step": "KYC Verification", "date": "2024-08-10", "status": "failed" },
+      { "step": "Settlement", "date": null, "status": "pending" }
+    ]
+  },
+  {
+    "claimId": "CLM-2024-007",
+    "uan": "100555666777",
+    "memberName": "Amit Patel",
+    "formType": "Form 31",
+    "formDescription": "PF Advance — Education",
+    "amount": 200000,
+    "submittedDate": "2024-07-28",
+    "lastUpdated": "2024-08-08",
+    "status": "rejected",
+    "rejectionCode": "RJ-014",
+    "employerName": "Global Infotech Services",
+    "establishmentCode": "KABLR0054321",
+    "timeline": [
+      { "step": "Submitted", "date": "2024-07-28", "status": "done" },
+      { "step": "Employer Attestation", "date": "2024-07-30", "status": "done" },
+      { "step": "EPFO Processing", "date": "2024-08-05", "status": "done" },
+      { "step": "KYC Verification", "date": "2024-08-08", "status": "failed" },
+      { "step": "Settlement", "date": null, "status": "pending" }
+    ]
+  },
+  {
+    "claimId": "CLM-2024-008",
+    "uan": "100555666777",
+    "memberName": "Amit Patel",
+    "formType": "Form 10C",
+    "formDescription": "Pension Withdrawal",
+    "amount": 78000,
+    "submittedDate": "2024-08-12",
+    "lastUpdated": "2024-08-14",
+    "status": "processing",
+    "rejectionCode": null,
+    "employerName": "Global Infotech Services",
+    "establishmentCode": "KABLR0054321",
+    "timeline": [
+      { "step": "Submitted", "date": "2024-08-12", "status": "done" },
+      { "step": "Employer Attestation", "date": "2024-08-14", "status": "active" },
+      { "step": "EPFO Processing", "date": null, "status": "pending" },
+      { "step": "KYC Verification", "date": null, "status": "pending" },
+      { "step": "Settlement", "date": null, "status": "pending" }
+    ]
+  }
+]

@@ -1,0 +1,112 @@
+.explainer {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.explainer-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.explainer-code-badge {
+  background: var(--status-rejected-bg);
+  color: var(--status-rejected);
+  font-weight: 800;
+  font-size: var(--font-size-xs);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.explainer-title {
+  font-size: var(--font-size-base);
+  font-weight: 700;
+}
+
+.explainer-text {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.explainer-steps h4,
+.explainer-tips h4 {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+  color: var(--text-accent);
+}
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.explainer-step {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: var(--bg-glass);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-glass);
+  transition: all var(--transition-fast);
+}
+
+.explainer-step:hover {
+  background: var(--bg-glass-strong);
+  border-color: var(--border-accent);
+}
+
+.step-number {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.step-info h5 {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.step-info p {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.explainer-tips ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.explainer-tips li {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  padding-left: var(--space-lg);
+  position: relative;
+  line-height: 1.5;
+}
+
+.explainer-tips li::before {
+  content: '•';
+  position: absolute;
+  left: var(--space-sm);
+  color: var(--accent-cyan);
+  font-weight: bold;
+}

@@ -1,0 +1,102 @@
+.claim-card {
+  padding: var(--space-md) !important;
+}
+
+.claim-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-sm);
+}
+
+.claim-card-form {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.claim-form-emoji {
+  font-size: 1.5rem;
+}
+
+.claim-form-type {
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+}
+
+.claim-form-desc {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.claim-card-body {
+  margin-bottom: var(--space-sm);
+}
+
+.claim-amount {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 2px;
+}
+
+.claim-meta {
+  display: flex;
+  gap: var(--space-xs);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
+.claim-rejection-preview {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  background: var(--status-rejected-bg);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+  border-left: 3px solid var(--status-rejected);
+}
+
+.rejection-code-tag {
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--status-rejected);
+  background: rgba(239, 68, 68, 0.15);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.rejection-title {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.claim-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.claim-employer {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 60%;
+}
+
+.claim-fix-hint {
+  font-size: var(--font-size-xs);
+  color: var(--accent-cyan);
+  font-weight: 600;
+  animation: pulse 2s ease-in-out infinite;
+}

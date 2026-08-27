@@ -1,0 +1,121 @@
+/* ══ Header ══════════════════════════════════ */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 0;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.header-logo {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.header-title {
+  font-size: var(--font-size-lg);
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.header-subtitle {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+/* ══ Main Content ════════════════════════════ */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ══ Bottom Nav ══════════════════════════════ */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-around;
+  padding: var(--space-sm) 0;
+  padding-bottom: max(var(--space-sm), env(safe-area-inset-bottom));
+  border-radius: 0;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+.nav-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: var(--space-xs) var(--space-md);
+  background: none;
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  transition: all var(--transition-fast);
+  position: relative;
+  border-radius: var(--radius-md);
+  min-width: 64px;
+}
+
+.nav-tab:hover {
+  color: var(--text-secondary);
+}
+
+.nav-tab.active {
+  color: var(--text-accent);
+}
+
+.nav-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: transform var(--transition-spring);
+}
+
+.nav-tab.active .nav-icon {
+  transform: scale(1.15) translateY(-2px);
+}
+
+.nav-label {
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  animation: scaleIn var(--transition-fast) ease-out;
+}

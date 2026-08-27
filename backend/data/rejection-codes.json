@@ -1,0 +1,177 @@
+[
+  {
+    "code": "RJ-001",
+    "title": "KYC Mismatch — Name",
+    "description": "The name in your PF account does not match the name in your Aadhaar/PAN records.",
+    "severity": "high",
+    "category": "KYC"
+  },
+  {
+    "code": "RJ-002",
+    "title": "KYC Mismatch — Date of Birth",
+    "description": "Your date of birth in PF records does not match your Aadhaar/PAN.",
+    "severity": "high",
+    "category": "KYC"
+  },
+  {
+    "code": "RJ-003",
+    "title": "KYC Mismatch — Father's Name",
+    "description": "Father's name in PF records differs from your KYC documents.",
+    "severity": "medium",
+    "category": "KYC"
+  },
+  {
+    "code": "RJ-004",
+    "title": "Bank Account Not Verified",
+    "description": "The bank account linked to your PF is not verified or does not match your name.",
+    "severity": "high",
+    "category": "Bank"
+  },
+  {
+    "code": "RJ-005",
+    "title": "Aadhaar Not Seeded",
+    "description": "Your Aadhaar number is not linked (seeded) to your UAN.",
+    "severity": "high",
+    "category": "KYC"
+  },
+  {
+    "code": "RJ-006",
+    "title": "PAN Not Verified",
+    "description": "Your PAN card is either not linked or the details don't match with EPFO records.",
+    "severity": "medium",
+    "category": "KYC"
+  },
+  {
+    "code": "RJ-007",
+    "title": "Employer Attestation Pending",
+    "description": "Your employer has not attested/approved your claim. They need to sign off on it.",
+    "severity": "high",
+    "category": "Employer"
+  },
+  {
+    "code": "RJ-008",
+    "title": "Insufficient Service Period",
+    "description": "You haven't completed the minimum required service period for this type of withdrawal.",
+    "severity": "medium",
+    "category": "Eligibility"
+  },
+  {
+    "code": "RJ-009",
+    "title": "Duplicate Claim",
+    "description": "A claim for this purpose has already been submitted and is being processed.",
+    "severity": "low",
+    "category": "Process"
+  },
+  {
+    "code": "RJ-010",
+    "title": "Form Incomplete",
+    "description": "Required fields in your claim form are missing or incomplete.",
+    "severity": "medium",
+    "category": "Form"
+  },
+  {
+    "code": "RJ-011",
+    "title": "Wrong Form Type",
+    "description": "The form submitted does not match the purpose of withdrawal. E.g., Form 31 used instead of Form 19.",
+    "severity": "medium",
+    "category": "Form"
+  },
+  {
+    "code": "RJ-012",
+    "title": "Member ID Mismatch",
+    "description": "The Member ID on the form doesn't match the records for this UAN.",
+    "severity": "high",
+    "category": "KYC"
+  },
+  {
+    "code": "RJ-013",
+    "title": "Employer Establishment Inactive",
+    "description": "The employer's EPFO establishment code is deactivated or non-compliant.",
+    "severity": "high",
+    "category": "Employer"
+  },
+  {
+    "code": "RJ-014",
+    "title": "Advance Limit Exceeded",
+    "description": "The advance amount requested exceeds the permissible limit for this withdrawal type.",
+    "severity": "medium",
+    "category": "Eligibility"
+  },
+  {
+    "code": "RJ-015",
+    "title": "Previous Advance Not Settled",
+    "description": "A previously sanctioned advance has not been settled/utilized. New advance cannot be processed.",
+    "severity": "medium",
+    "category": "Process"
+  },
+  {
+    "code": "RJ-016",
+    "title": "Nominee Details Missing",
+    "description": "Nominee/family details are not updated in your EPFO records.",
+    "severity": "low",
+    "category": "Form"
+  },
+  {
+    "code": "RJ-017",
+    "title": "Transfer Not Complete",
+    "description": "A pending PF transfer from a previous employer has not been completed.",
+    "severity": "medium",
+    "category": "Process"
+  },
+  {
+    "code": "RJ-018",
+    "title": "Age Criteria Not Met",
+    "description": "You do not meet the age requirement for pension withdrawal (Form 10C/10D).",
+    "severity": "medium",
+    "category": "Eligibility"
+  },
+  {
+    "code": "RJ-019",
+    "title": "Contribution Discrepancy",
+    "description": "There is a mismatch between employer-reported contributions and EPFO records.",
+    "severity": "high",
+    "category": "Employer"
+  },
+  {
+    "code": "RJ-020",
+    "title": "IFSC Code Invalid",
+    "description": "The IFSC code of the linked bank account is invalid or the branch has been merged.",
+    "severity": "medium",
+    "category": "Bank"
+  },
+  {
+    "code": "RJ-021",
+    "title": "Cheque/Passbook Not Uploaded",
+    "description": "Cancelled cheque or bank passbook copy was not attached with the claim.",
+    "severity": "low",
+    "category": "Form"
+  },
+  {
+    "code": "RJ-022",
+    "title": "Employment Certificate Missing",
+    "description": "Certificate of employment/cessation from employer is required but not provided.",
+    "severity": "medium",
+    "category": "Form"
+  },
+  {
+    "code": "RJ-023",
+    "title": "COVID Advance Already Availed",
+    "description": "The COVID-19 special advance has already been availed and cannot be claimed again.",
+    "severity": "low",
+    "category": "Eligibility"
+  },
+  {
+    "code": "RJ-024",
+    "title": "Joint Declaration Pending",
+    "description": "A joint declaration from you and your employer is required for service period correction.",
+    "severity": "medium",
+    "category": "Employer"
+  },
+  {
+    "code": "RJ-025",
+    "title": "Digital Signature Verification Failed",
+    "description": "The digital signature on the online claim could not be verified.",
+    "severity": "high",
+    "category": "Process"
+  }
+]

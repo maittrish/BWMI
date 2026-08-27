@@ -1,0 +1,14 @@
+{
+  "name": "pf-sathi-backend",
+  "version": "1.0.0",
+  "description": "PF Sathi API server — Mock EPFO claims + AI explainer",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  }
+}

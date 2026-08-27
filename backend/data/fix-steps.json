@@ -1,0 +1,302 @@
+{
+  "RJ-001": {
+    "summary": "Your name in PF records doesn't match your Aadhaar. This is the most common rejection reason.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Check your UAN portal",
+        "description": "Login to https://unifiedportal-mem.epfindia.gov.in and go to 'Manage' → 'KYC' to see your current name on record.",
+        "icon": "search"
+      },
+      {
+        "step": 2,
+        "title": "Identify the mismatch",
+        "description": "Compare your name in PF records with your Aadhaar card. Common issues: spelling differences, middle name missing, initials vs full name.",
+        "icon": "compare"
+      },
+      {
+        "step": 3,
+        "title": "Request name correction",
+        "description": "Submit a joint declaration (Form-1) with your employer to correct the name. Your employer needs to approve this on the employer portal.",
+        "icon": "edit"
+      },
+      {
+        "step": 4,
+        "title": "Wait for update",
+        "description": "Name corrections typically take 7-15 working days. You'll get an SMS confirmation.",
+        "icon": "clock"
+      },
+      {
+        "step": 5,
+        "title": "Resubmit your claim",
+        "description": "Once your name is corrected, submit a fresh claim through the UAN portal.",
+        "icon": "send"
+      }
+    ]
+  },
+  "RJ-002": {
+    "summary": "Your date of birth in PF records doesn't match your Aadhaar/PAN. This needs employer cooperation to fix.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Verify DOB on UAN portal",
+        "description": "Login and check your date of birth under 'View' → 'Profile'."
+      },
+      {
+        "step": 2,
+        "title": "Contact your employer's HR",
+        "description": "Ask HR to submit a DOB correction through the employer portal with supporting documents (Aadhaar/PAN copy)."
+      },
+      {
+        "step": 3,
+        "title": "Submit supporting documents",
+        "description": "Provide a self-attested copy of Aadhaar and PAN to your employer for verification."
+      },
+      {
+        "step": 4,
+        "title": "Wait for EPFO approval",
+        "description": "DOB corrections are processed by the EPFO regional office. This may take 15-30 days."
+      },
+      {
+        "step": 5,
+        "title": "Resubmit claim",
+        "description": "After correction is reflected, submit a new claim."
+      }
+    ]
+  },
+  "RJ-003": {
+    "summary": "Father's name mismatch between PF records and KYC documents.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Check records",
+        "description": "Verify father's name on UAN portal under your profile."
+      },
+      {
+        "step": 2,
+        "title": "Request correction via employer",
+        "description": "Submit a joint declaration with employer to correct father's name."
+      },
+      {
+        "step": 3,
+        "title": "Provide documents",
+        "description": "Submit Aadhaar/PAN/10th marksheet showing correct father's name."
+      },
+      {
+        "step": 4,
+        "title": "Resubmit after correction",
+        "description": "Once updated, file your claim again."
+      }
+    ]
+  },
+  "RJ-004": {
+    "summary": "Your bank account couldn't be verified, or the name on the bank account doesn't match your PF records.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Check linked bank account",
+        "description": "Login to UAN portal → 'Manage' → 'KYC' and verify your bank account number and IFSC."
+      },
+      {
+        "step": 2,
+        "title": "Ensure name matches",
+        "description": "The name on your bank account must exactly match the name in your PF records. Check your bank passbook."
+      },
+      {
+        "step": 3,
+        "title": "Upload cancelled cheque",
+        "description": "If needed, upload a cancelled cheque or passbook front page on the UAN portal."
+      },
+      {
+        "step": 4,
+        "title": "Verify bank details",
+        "description": "Click 'Verify' next to your bank account on the KYC page. Verification is usually instant via penny-drop."
+      },
+      {
+        "step": 5,
+        "title": "Resubmit claim",
+        "description": "Once bank is verified (green tick), submit your claim again."
+      }
+    ]
+  },
+  "RJ-005": {
+    "summary": "Your Aadhaar is not linked (seeded) to your UAN. This is mandatory for all online claims.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Go to KYC section",
+        "description": "Login to UAN portal → 'Manage' → 'KYC'."
+      },
+      {
+        "step": 2,
+        "title": "Add Aadhaar",
+        "description": "Enter your 12-digit Aadhaar number and name as per Aadhaar."
+      },
+      {
+        "step": 3,
+        "title": "Employer approval",
+        "description": "Your employer needs to approve the Aadhaar seeding on their portal."
+      },
+      {
+        "step": 4,
+        "title": "Verification",
+        "description": "UIDAI verification happens automatically. Wait for green 'Verified' status."
+      },
+      {
+        "step": 5,
+        "title": "Resubmit claim",
+        "description": "Once Aadhaar shows as verified, submit your claim."
+      }
+    ]
+  },
+  "RJ-006": {
+    "summary": "PAN card is not linked or details don't match with EPFO records.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Add PAN on UAN portal",
+        "description": "Go to 'Manage' → 'KYC' and add your PAN number."
+      },
+      {
+        "step": 2,
+        "title": "Get employer approval",
+        "description": "Employer must approve the PAN addition."
+      },
+      {
+        "step": 3,
+        "title": "Wait for verification",
+        "description": "PAN verification with Income Tax department takes 2-5 days."
+      },
+      {
+        "step": 4,
+        "title": "Resubmit",
+        "description": "After PAN shows verified, resubmit your claim."
+      }
+    ]
+  },
+  "RJ-007": {
+    "summary": "Your employer hasn't approved your claim yet. Many employers delay attestation, especially after you leave the company.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Contact HR directly",
+        "description": "Call or email your former employer's HR department and request them to attest your claim on the EPFO employer portal."
+      },
+      {
+        "step": 2,
+        "title": "Send a formal reminder",
+        "description": "If they don't respond, send an email with your UAN, Member ID, and claim reference number requesting attestation."
+      },
+      {
+        "step": 3,
+        "title": "File grievance on EPFiGMS",
+        "description": "If employer still doesn't respond after 7 days, file a complaint at https://epfigms.gov.in against the employer."
+      },
+      {
+        "step": 4,
+        "title": "Contact EPFO office",
+        "description": "Visit or call your regional EPFO office. They can send a notice to the employer."
+      },
+      {
+        "step": 5,
+        "title": "Alternative: Transfer to new employer",
+        "description": "If you've joined a new company, transfer your PF and your new employer can attest the claim."
+      }
+    ]
+  },
+  "RJ-008": {
+    "summary": "You haven't completed the required service period. Full PF withdrawal needs 60 days of unemployment after leaving.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Check eligibility",
+        "description": "For Form 19 (full withdrawal): You must be unemployed for at least 2 months. For Form 31 (advance): Check specific advance rules."
+      },
+      {
+        "step": 2,
+        "title": "Wait if needed",
+        "description": "If you recently left your job, wait for the required period to complete."
+      },
+      {
+        "step": 3,
+        "title": "Consider partial withdrawal",
+        "description": "If you need funds urgently, check if you're eligible for a partial advance (Form 31) which has different rules."
+      },
+      {
+        "step": 4,
+        "title": "Resubmit after eligibility",
+        "description": "Submit your claim after completing the required service/unemployment period."
+      }
+    ]
+  },
+  "RJ-014": {
+    "summary": "You requested more money than allowed for this type of advance. Each advance type has a maximum limit.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Check advance limits",
+        "description": "Housing: Up to 36 months' basic wages or total PF balance (whichever is less). Medical: Up to 6 months' wages. Education: Up to 50% of employee share."
+      },
+      {
+        "step": 2,
+        "title": "Calculate your eligible amount",
+        "description": "Check your PF passbook on the UAN portal to see your current balance and calculate the maximum allowed."
+      },
+      {
+        "step": 3,
+        "title": "Resubmit with correct amount",
+        "description": "File a new claim with an amount within the permissible limit."
+      }
+    ]
+  },
+  "RJ-020": {
+    "summary": "The IFSC code of your bank branch is wrong or the branch has been merged/renamed.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Check current IFSC",
+        "description": "Ask your bank for the current IFSC code. Many branches were merged due to bank consolidation (e.g., SBI, PNB mergers)."
+      },
+      {
+        "step": 2,
+        "title": "Update on UAN portal",
+        "description": "Go to 'Manage' → 'KYC', update your bank account with the correct IFSC code."
+      },
+      {
+        "step": 3,
+        "title": "Verify again",
+        "description": "Wait for the bank account to show 'Verified' status."
+      },
+      {
+        "step": 4,
+        "title": "Resubmit",
+        "description": "Submit your claim with the corrected bank details."
+      }
+    ]
+  },
+  "RJ-025": {
+    "summary": "Your digital signature couldn't be verified. This usually happens with Aadhaar-based e-sign issues.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Check Aadhaar mobile link",
+        "description": "Ensure your mobile number is registered with Aadhaar for OTP-based e-signing."
+      },
+      {
+        "step": 2,
+        "title": "Clear browser cache",
+        "description": "Clear cookies and cache, use Chrome/Edge, and try the claim submission again."
+      },
+      {
+        "step": 3,
+        "title": "Try again during off-peak",
+        "description": "EPFO servers are less busy early morning (6-9 AM) or late night. Try submitting during these hours."
+      },
+      {
+        "step": 4,
+        "title": "Use Aadhaar OTP method",
+        "description": "If using digital certificate, switch to Aadhaar OTP method for signing."
+      }
+    ]
+  }
+}
