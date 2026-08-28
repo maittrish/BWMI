@@ -3,8 +3,10 @@ services:
     name: pf-sathi
     runtime: node
     plan: free
-    buildCommand: npm run setup
-    startCommand: npm start
+    buildCommand: npm install --prefix backend && npm install --prefix frontend && npm run build
+    startCommand: node backend/server.js
     envVars:
       - key: NODE_ENV
         value: production
+      - key: NODE_VERSION
+        value: 20.11.0
